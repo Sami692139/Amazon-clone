@@ -1,0 +1,102 @@
+Introduction of Amazon documentation:
+What I will learn in this project:
+==================================
+1. THIS IS PRODUCTION PART:
+        1. components based styling
+        2. Global state management using useReducer and Context API
+        3. API Integration (both external and my own API) and payment/ create
+        4. React App Routing including Dynamic and programmetic navigation
+        5. Authentication and Route protextion
+        6. External services integrations (Firebase for Authentication and database)
+        7. payment gate way integrations there is 'strip' payment method
+        8. preparing a backend api for react App
+        9. Deployment (both Frontend and backend)
+
+2. TO SETUP OF PROJECT there is two extenstion which is ImageAssistant Batch image Downloader and colorZilla 
+     if we use vite the same time create vite.config.js
+     In index.html change to title name Amazon clone 
+     grap amazon icone image : https://pngimg.com/ then downlod amazon icon image and
+     this image convert into  favicon.ico by using ico convertor : https://www.icoconverter.com/
+
+3. Create Header components 
+    - There is three section : Log image , delvery icon , search bar and right side sign up cart 
+    - for grap log-Image: https://pngimg.com/
+    - Taking Log image address link
+
+    -For rght side like search grap icon Link: https://react-icons.github.io/react-icons/
+
+     Install this : npm install react-icons --save
+   
+    In Header components:
+     create LowerHeader.jsx
+      - contain 'Menu icon' three line sign to grap :https://react-icons.github.io/react-icons/
+     Menu sign : import { MdOutlineMenu } from "react-icons/md"; , <MdOutlineMenu />
+
+4. Create carousel effect moduel
+   This is a link :https://www.npmjs.com/package/react-responsive-carousel/v/3.2.13
+   Install carousel package : npm i react-responsive-carousel
+   then downlod image from main amazon website to use 'ImageAssistant Batch Image downloader extenstion'
+    select extract current page
+    1 create carouel component in components 
+    2. create carouel css
+    3. create a loop data which is data.jsx to collect all image 
+    4. Follw the carousel rule like 
+       - autoplay
+       - infinite loop
+       - showindicator
+       - showThumbs
+   those grap from 
+   Import css for carousel : import 'react-responsive-carousel/lib/styles/carousel.min.css';
+
+
+
+5. create category component:
+   This is a link to grap catagory list item : https://fakestoreapi.com/docs
+    Get all categories
+    fetch('https://fakestoreapi.com/products/categories')
+            .then(res=>res.json())
+            .then(json=>console.log(json))
+    Hide output
+            //output
+            [
+            "electronics",
+            "jewelery",
+            "men's clothing",
+            "women's clothing"
+            ]
+    The above category grap image from main amazon website by category
+
+     -If we Get products in a specific category
+          fetch('https://fakestoreapi.com/products/category/jewelery')
+                    .then(res=>res.json())
+                    .then(json=>console.log(json))
+                
+
+6. Create single product components handle 
+   create one single product component in components to use multiple times 
+    1 create product componet from this component pass data to productCard
+    fetch data by api from fackstoreapi.com site by this Link: https://fakestoreapi.com/products
+    then  install axios and import in to product component
+    - axios is used for fetch data
+
+    - To Rating and price 
+    Use material Ui Link : https://mui.com/material-ui/material-icons/
+    - install Mui : npm install @mui/material @emotion/react @emotion/styled  this for rating
+
+    -Formating price this a link : http://numeraljs.com/ the select node js
+       npm install numeral
+
+   *************************************
+   if we see lE sign use this code.
+git config --global core.autocrlf true
+after run then git add . 
+
+
+   *************************************    
+
+7. Header routing 
+   - create Landing component in src to hold Header, category carosuel , product 
+   - so in this case create pages , in the pages create Landing component
+   - In Landing components create a function landing.jsx, so render components on it.
+   - create another components nameing is Layout for the header binding with child components
+   - create one routing for pages to be organized
