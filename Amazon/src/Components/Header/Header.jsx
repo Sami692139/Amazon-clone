@@ -1,26 +1,30 @@
-// import React from "react";
+import React, { useContext } from "react";
 import classes from "./header.module.css";
-// import {Link} from 'react-router-dom'
 import { GrLocation } from "react-icons/gr"; // Location pin icon
 import { BsSearch } from "react-icons/bs";
 import { BiCart } from "react-icons/bi";
 import LowerHeader from "./LowerHeader";
 import { Link } from "react-router-dom";
+import { DataContext } from "../DataProvider/DataProvider";
 
   const Header = () => {
 
+    const [{basket},dispatch]= useContext(DataContext)
+    console.log(basket)
+
   return (
     <>
-    <section>
+      <section>
         <div className={classes.header__container}>
           {/* logo section */}
           <div className={classes.logo__container}>
             {/* this <Link 'herf' to change 'link' ,'to' */}
-            <Link to="/"> 
+            <Link to="/">
               <img
                 src="https://pngimg.com/uploads/amazon/amazon_PNG11.png"
-                alt="amazon logo" />       
-             </Link>
+                alt="amazon logo"
+              />
+            </Link>
             <div className={classes.delivery}>
               <span>
                 <GrLocation />
@@ -49,13 +53,13 @@ import { Link } from "react-router-dom";
               <select name="" id="">
                 <option value="">EN</option>
               </select>
-           </Link>
+            </Link>
             {/* sign in  */}
             <Link to="">
-               <p>Sign In</p>
-               <span>Account & Lists</span>
+              <p>Sign In</p>
+              <span>Account & Lists</span>
             </Link>
-               {/* orders returns */}
+            {/* orders returns */}
             <Link to="/orders">
               <p>Returns</p>
               <span>& Orders</span>
@@ -63,14 +67,14 @@ import { Link } from "react-router-dom";
             {/* cart */}
             <Link to="/cart" className={classes.cart}>
               <BiCart size={35} />
-              <span>0</span>
+              <span>{basket.length}</span>
             </Link>
-           </div>
+          </div>
         </div>
-    </section>
-    <LowerHeader />
-  </>
- );
+      </section>
+      <LowerHeader />
+    </>
+  );
 };
 
 export default Header;

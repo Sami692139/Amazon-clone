@@ -86,6 +86,8 @@ What I will learn in this project:
     -Formating price this a link : http://numeraljs.com/ the select node js
        npm install numeral
 
+      
+
    *************************************
    if we see lE sign use this code.
 git config --global core.autocrlf true
@@ -99,4 +101,75 @@ after run then git add .
    - so in this case create pages , in the pages create Landing component
    - In Landing components create a function landing.jsx, so render components on it.
    - create another components nameing is Layout for the header binding with child components
-   - create one routing for pages to be organized
+   - create one routing for pages to be organized
+   - For example http://localhost:5173/cart , cart display without header so cart should be 
+         encounter by Layout component
+          <LayOut>
+            <div>Cart</div>
+          </LayOut>
+      so cart will be display with header title , Layout component is powerfull 
+
+   - So we go back to header to make Layout, button clike like cart , payment, then 
+      on href "/" for amazon home page 
+       <a  href ="/order"
+       <a  href ="/cart"
+   when we click cart display cart page the same order page too
+   - To avoid defult refresh  <a href="/" to change Link to
+     which is <link to = "/order"
+
+8. Category Routing
+   we have four category product each category product has specific product so we want display that , use routing daynamic display it
+   - we go back to categoryCard product the '<a href' to change '<link to' 
+   - To pass data we use useParams import from react-router-dom
+   - declare as a varaible params = useParams()
+   - create Api in src to  call  which is productUrl:https://fakestoreapi.com
+   - This export in to Result components
+   - use axios to get product dynamic which like this:axios.get(${productUrl}/products/category/${categoryName})
+
+   - Get products in a specific category see below link:
+     https://fakestoreapi.com/products/category/jewelery
+
+   - create a state to hold value in usestate
+
+9. Detail page Routing part
+   - here we go back to product component to do Link to change 
+   - On link to passed daynamic which is <Link to={/products/${id}}>
+   - The link emarge to routing components the going to productdetail component
+     import useParams passed as props 
+   - imoprt axios when if we use useEffect 
+   - 
+
+10. Laoding Functinality Intergration 
+    install react spinner to help loading products: https://www.npmjs.com/package/react-loader-spinner
+    -React sppner loader: https://www.davidhu.io/react-spinners/storybook/?path=/docs/gridloader--docs
+    
+    - create loader compoments to use update
+     then grap lodder signe to loaded product if don't product dont show it only show loaded products in the cart
+     isloading to bind in layou section
+     -This Loading component binding to productcd, product, result compomemts
+
+11. Detail page styling and addition of description on a single product
+   First step go to productdetail component pass flex style
+   This flex pass as props in productCard , if the flex is true , the passed in retuen div as templete style.
+    drenderDesc= {true} so we have to distructure 
+
+12. useReducer Hook and useContext API explanation amd example
+    - This is for state update available for other component require or provided other components 
+   - usestate ans context 
+   - if we have complext case we use useReducer than useState
+   - dispatch asig to change  render
+   - Create one contectProvider component
+
+13. Add to chart functionality
+     create utility in src to maintain functionality components like cart add ,price add
+      ...state, the three dot is keeping three products
+            basket:[...state.basket,action.item]
+
+   then create dataprovider to maintan context which provider data context
+   - This dataprovider component create in components 
+   we go back to  productcard to create use context
+
+
+14. Header sticky part implementation
+    we go back to header 
+    create on section part and css is be sticky
