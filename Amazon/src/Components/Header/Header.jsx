@@ -13,7 +13,7 @@ import { DataContext } from "../DataProvider/DataProvider";
     console.log(basket)
 
   return (
-    <>
+    <section className={classes.fixed} >
       <section>
         <div className={classes.header__container}>
           {/* logo section */}
@@ -73,7 +73,7 @@ import { DataContext } from "../DataProvider/DataProvider";
         </div>
       </section>
       <LowerHeader />
-    </>
+    </section>
   );
 };
 
