@@ -5,15 +5,30 @@ import ProductCard from '../../Components/Product/ProductCard';
 import CurrencyFormat from '../../Components/CurrencyFormat/CurrencyFormat';
 import { Link } from 'react-router-dom';
 import classes from './cart.module.css'
+import { Type } from '../../Utility/action.type';
 
 
 const Cart = () => {
   const [{basket,user},dispatch] = useContext(DataContext);
 
   const total = basket.reduce((amount,item)=>{
-   return item.price + amount
+   return item.price * item.amount + amount
 
   },0)
+  // console.log(basket)
+
+   const increment =(item)=>{
+    dispatch({
+      type:Type.ADD_TO_BASKET,
+      item
+    })
+   }
+   const decrement = (id)=>{
+    dispatch({
+      type:Type.REMOVE_FROM_BASKET,
+      id
+    })
+   }
   return (
     <LayOut>
       <sectio className={classes.container}>
@@ -26,13 +41,20 @@ const Cart = () => {
           ) : (
             basket?.map((item, i) => {
               return (
-                <ProductCard
-                  key={i}
-                  product={item}
-                  renderDesc={true}
-                  renderAdd={false}
-                  flex={true}
-                />
+                <section>
+                  <ProductCard
+                    key={i}
+                    product={item}
+                    renderDesc={true}
+                    renderAdd={false}
+                    flex={true}
+                  />
+                  <div>
+                    <button onClick={()=>increment(item)}>+</button>
+                    <span>{item.amount}</span>
+                    <button onClick={()=>decrement(item.id)}>-</button>
+                  </div>
+                </section>
               );
             })
           )}
