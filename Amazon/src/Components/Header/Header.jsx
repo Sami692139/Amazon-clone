@@ -14,6 +14,7 @@ import { DataContext } from "../DataProvider/DataProvider";
      const totalItem = basket?.reduce((amount, item) => {
        return item.amount + amount;
      }, 0);
+    //  console.log(totalItem)
 
   return (
     <section className={classes.fixed}>

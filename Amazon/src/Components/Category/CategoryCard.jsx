@@ -1,10 +1,8 @@
 /* eslint-disable react/prop-types */
 import React from "react";
-import classes from "./Category.module.css";
+import classes from "./category.module.css";
 import { Link } from "react-router-dom";
 
-// import classes from "./Category.module.css";
-// import { Link } from "react-router-dom";
 
 const CategoryCard = ({data})=> {  // data is consider as props
   console.log(data);
