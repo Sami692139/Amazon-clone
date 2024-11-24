@@ -44,6 +44,9 @@ import {auth} from '../../Utility/firebase'
           <div className={classes.search}>
             <select name="" id="">
               <option value="">All</option>
+              <option value="">Art &Crafts</option>
+              <option value="">Automotive</option>
+              <option value="">Baby</option>
             </select>
             <input type="text" name="" id="" placeholder="Search Amazon" />
             <BsSearch size={38} />
@@ -57,6 +60,7 @@ import {auth} from '../../Utility/firebase'
               />
               <select name="" id="">
                 <option value="">EN</option>
+                <option value="">UK</option>
               </select>
             </Link>
             {/* sign in  */}
