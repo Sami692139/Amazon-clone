@@ -69,7 +69,7 @@ import {auth} from '../../Utility/firebase'
                   </>
                 ) : (
                   <>
-                    <p>Sign In</p>
+                    <p>Hello, Sign In</p>
 
                     <span>Account & Lists</span>
                   </>
